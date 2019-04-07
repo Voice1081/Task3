@@ -29,13 +29,13 @@ public class ThreadDispatcher {
 
 
     public void Add(Threaded th){
-        th.id = th.getClass().getName() + changes;
         th.setDispatcher(this);
+        Thread t = new Thread(th);
+        th.id = th.getClass().getName() + changes + " " + t.getId();
         synchronized (this) {
             pull.add(th.id);
             changes += 1;
         }
-        Thread t = new Thread(th, th.id);
         t.start();
     }
 
