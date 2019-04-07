@@ -1,5 +1,5 @@
 public abstract class Threaded implements Runnable{
-    private ThreadDispatcher dispatcher;
+    protected ThreadDispatcher dispatcher;
     public String id;
     public ThreadDispatcher getDispatcher() {
         return dispatcher;
